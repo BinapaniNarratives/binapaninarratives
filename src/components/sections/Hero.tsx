@@ -32,8 +32,8 @@ export const Hero = () => {
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tighter leading-[1.05] mb-6 animate-fade-in-up">
-            We Design Websites <br />
-            That <span className="text-gradient">Convert</span>
+            Welcome to <br />
+            the <span className="text-gradient">Editing!</span>
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in-up" style={{ animationDelay: "150ms", opacity: 0 }}>
