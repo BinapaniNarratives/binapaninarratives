@@ -7,10 +7,9 @@ import { cn } from "@/lib/utils";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/services", label: "Services" },
-  { to: "/portfolio", label: "Portfolio" },
-  { to: "/contact", label: "Contact" },
+  { to: "/services", label: "Courses" },
+  { to: "/portfolio", label: "Success" },
+  { to: "/about", label: "Course Details" },
 ];
 
 export const Navbar = () => {
@@ -70,9 +69,12 @@ export const Navbar = () => {
             ))}
           </div>
 
-          <div className="hidden md:block">
+          <div className="hidden md:flex items-center gap-2">
+            <Button asChild variant="glass" size="sm">
+              <Link to="/contact">Log In</Link>
+            </Button>
             <Button asChild variant="hero" size="sm">
-              <Link to="/contact">Get Started</Link>
+              <Link to="/contact">Enroll Now</Link>
             </Button>
           </div>
 
@@ -105,8 +107,11 @@ export const Navbar = () => {
                   {l.label}
                 </NavLink>
               ))}
-              <Button asChild variant="hero" className="mt-2">
-                <Link to="/contact">Get Started</Link>
+              <Button asChild variant="glass" className="mt-2">
+                <Link to="/contact">Log In</Link>
+              </Button>
+              <Button asChild variant="hero">
+                <Link to="/contact">Enroll Now</Link>
               </Button>
             </div>
           </div>
