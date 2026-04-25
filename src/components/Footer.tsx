@@ -59,7 +59,7 @@ export const Footer = () => {
         </div>
 
         <div className="mt-12 pt-6 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} PixelCraft Studio. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Binapani Narratives. All rights reserved.</p>
           <div className="flex gap-6">
             <a href="#" className="hover:text-foreground transition">Privacy</a>
             <a href="#" className="hover:text-foreground transition">Terms</a>
