@@ -97,7 +97,7 @@ const Contact = () => {
 
             <div className="glass rounded-2xl overflow-hidden h-64">
               <iframe
-                title="PixelCraft Studio location"
+                title="Binapani Narratives location"
                 src="https://www.google.com/maps?q=San+Francisco&output=embed"
                 className="w-full h-full grayscale contrast-125"
                 loading="lazy"

@@ -22,7 +22,7 @@ const About = () => {
               We're a small studio with <span className="text-gradient">big ambitions</span>
             </h1>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              PixelCraft Studio is a tight-knit team of designers and engineers based in San Francisco.
+              Binapani Narratives is a tight-knit team of designers and engineers based in San Francisco.
               Since 2018 we've partnered with startups and established brands to ship websites that perform —
               creatively, technically, and commercially.
             </p>

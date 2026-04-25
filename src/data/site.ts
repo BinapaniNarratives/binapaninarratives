@@ -26,7 +26,7 @@ export const team = [
 ];
 
 export const testimonials = [
-  { name: "Emma Carter", role: "CEO, Nova Analytics", image: team1, quote: "PixelCraft delivered a site that increased our conversions by 184%. The process was smooth and the team is exceptional." },
+  { name: "Emma Carter", role: "CEO, Nova Analytics", image: team1, quote: "Binapani Narratives delivered a site that increased our conversions by 184%. The process was smooth and the team is exceptional." },
   { name: "Marcus Chen", role: "Founder, Lumen", image: team2, quote: "Beautiful design, lightning-fast performance, and they truly understood our brand. We couldn't be happier." },
   { name: "Priya Shah", role: "CMO, Pulse Fitness", image: team3, quote: "From strategy to launch in six weeks. Our new platform is the best investment we've made this year." },
 ];

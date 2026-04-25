@@ -9,7 +9,7 @@ export const Testimonials = () => {
         <SectionHeader
           eyebrow="Testimonials"
           title={<>Loved by <span className="text-gradient">founders & teams</span></>}
-          description="Hear what our clients have to say about working with PixelCraft."
+          description="Hear what our clients have to say about working with Binapani Narratives."
         />
 
         <div className="grid md:grid-cols-3 gap-5">
