@@ -1,29 +1,14 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Play, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroBg from "@/assets/hero-bg.jpg";
 
 export const Hero = () => {
   return (
     <section className="relative overflow-hidden -mt-24 pt-24">
-      {/* Background layers */}
-      <div className="absolute inset-0 -z-10">
-        <img
-          src={heroBg}
-          alt=""
-          aria-hidden="true"
-          width={1920}
-          height={1280}
-          className="w-full h-full object-cover opacity-40"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/80 to-background" />
-        <div className="absolute inset-0 bg-gradient-hero" />
-      </div>
+      {/* Background — solid black */}
+      <div className="absolute inset-0 -z-10 bg-background" />
 
-      {/* Floating orbs */}
-      <div className="absolute top-1/4 -left-20 w-72 h-72 rounded-full bg-primary/30 blur-3xl animate-glow-pulse" />
-      <div className="absolute bottom-1/4 -right-20 w-96 h-96 rounded-full bg-secondary/30 blur-3xl animate-glow-pulse" style={{ animationDelay: "2s" }} />
-
+      {/* Floating orbs removed for pure black background */}
       <div className="container relative py-24 md:py-36">
         <div className="max-w-4xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass text-xs font-medium mb-8 animate-fade-in">
