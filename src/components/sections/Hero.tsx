@@ -86,18 +86,14 @@ export const Hero = () => {
             </Link>
           </div>
 
-          {/* Wordmark — redlabstudio / Binapani Narratives */}
+          {/* Wordmark — Binapani Narratives */}
           <div
             className="mt-12 flex flex-col items-center leading-none animate-fade-in-up"
             style={{ animationDelay: "400ms", opacity: 0 }}
           >
             <span className="font-display font-black italic text-3xl md:text-4xl tracking-tight leading-none">
-              <span className="text-primary">red</span>
-              <span className="text-foreground">lab</span>
-              <span className="text-primary">studio</span>
-            </span>
-            <span className="text-[10px] font-bold tracking-[0.25em] text-foreground mt-2 uppercase">
-              Binapani Narratives
+              <span className="text-primary">Binapani</span>{" "}
+              <span className="text-foreground">Narratives</span>
             </span>
           </div>
 
