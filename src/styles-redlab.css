@@ -1,0 +1,160 @@
+.redlab-shell {
+  background:
+    radial-gradient(circle at 50% 5%, hsl(var(--primary) / 0.24), transparent 28rem),
+    linear-gradient(hsl(var(--grid-line)) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--grid-line)) 1px, transparent 1px),
+    hsl(var(--background));
+  background-size: auto, 32px 32px, 32px 32px, auto;
+}
+
+.glass-nav {
+  border-bottom: 1px solid hsl(var(--border) / 0.45);
+  background: hsl(var(--background) / 0.88);
+  backdrop-filter: blur(22px);
+}
+
+.redlab-display-type {
+  font-family: "Archivo", "Archivo Black", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  letter-spacing: -0.045em;
+}
+
+@font-face {
+  font-family: "Li Subha Letterpress";
+  src: url("/fonts/LiSubhaLetterpress.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Li Subha Letterpress";
+  src: url("/fonts/LiSubhaLetterpressItalic.ttf") format("truetype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Alinur Sangbadpatra";
+  src: url("/fonts/AlinurSangbadpatra.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+@font-face {
+  font-family: "Alinur Sangbadpatra";
+  src: url("/fonts/AlinurSangbadpatraItalic.ttf") format("truetype");
+  font-weight: 400; font-style: italic; font-display: swap;
+}
+@font-face {
+  font-family: "Matefornia";
+  src: url("/fonts/Matefornia.woff2") format("woff2"),
+       url("/fonts/Matefornia.ttf") format("truetype");
+  font-weight: 400; font-style: normal; font-display: swap;
+}
+
+.hero-word {
+  text-shadow: 0 18px 80px hsl(0 0% 0% / 0.7);
+  animation: redlab-hero-rise 900ms cubic-bezier(.18,.9,.25,1) both;
+}
+
+.redlab-pill {
+  border: 1px solid hsl(var(--primary) / 0.34);
+  background: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  box-shadow: inset 0 0 28px hsl(var(--primary) / 0.04);
+}
+
+.redlab-button {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 20px 52px -22px hsl(var(--primary));
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+.redlab-button:hover {
+  transform: translateY(-3px) skewX(-2deg);
+  filter: brightness(1.08);
+  box-shadow: 0 30px 72px -26px hsl(var(--primary));
+}
+
+.redlab-section-band {
+  border-block: 1px solid hsl(var(--border) / 0.55);
+  background: linear-gradient(180deg, hsl(var(--background)), hsl(var(--card)), hsl(var(--background)));
+}
+
+.redlab-kicker {
+  color: hsl(var(--primary));
+  font-size: 0.75rem;
+  font-weight: 950;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.redlab-stat { animation: redlab-stat-pop 700ms cubic-bezier(.18,.9,.25,1) both; }
+
+.redlab-stat-blur {
+  height: 5.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid hsl(var(--border) / 0.5);
+  background:
+    radial-gradient(circle at 30% 30%, hsl(var(--primary) / 0.35), transparent 70%),
+    radial-gradient(circle at 70% 70%, hsl(28 95% 58% / 0.25), transparent 70%),
+    hsl(var(--card) / 0.5);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: inset 0 0 30px hsl(var(--primary) / 0.08);
+}
+
+@keyframes redlab-hero-rise {
+  from { opacity: 0; transform: translateY(38px) skewX(-5deg); }
+  to   { opacity: 1; transform: translateY(0) skewX(0); }
+}
+@keyframes redlab-stat-pop {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.sparkle-rainbow {
+  animation: sparkle-rainbow 3s linear infinite, sparkle-spin 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px currentColor);
+}
+@keyframes sparkle-rainbow {
+  0%   { color: #ff3b3b; } 10%  { color: #ff9f1c; }
+  20%  { color: #ffd60a; } 30%  { color: #8ac926; }
+  40%  { color: #00d4aa; } 50%  { color: #00b4ff; }
+  60%  { color: #4361ee; } 70%  { color: #9b5de5; }
+  80%  { color: #f15bb5; } 90%  { color: #ff5d8f; }
+  100% { color: #ff3b3b; }
+}
+@keyframes sparkle-spin {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50%      { transform: scale(1.25) rotate(180deg); }
+}
+
+.hero-bio {
+  color: hsl(28 95% 58%);
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+  font-weight: 800;
+}
+@media (min-width: 768px) {
+  .hero-bio { font-size: 1.05rem; line-height: 1.9; }
+}
+
+.powered-blur {
+  filter: blur(0.6px);
+  opacity: 0.75;
+  transition: filter 220ms ease, opacity 220ms ease;
+}
+.powered-blur:hover { filter: blur(0); opacity: 1; }
+
+.experience-icon {
+  animation: experience-bob 2.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px hsl(var(--primary) / 0.6));
+}
+@keyframes experience-bob {
+  0%, 100% { transform: translateY(0) rotate(-4deg) scale(1); }
+  50%      { transform: translateY(-4px) rotate(4deg) scale(1.12); }
+}
+
+.theme-toggle { overflow: hidden; isolation: isolate; }
+.theme-toggle-thumb {
+  transition:
+    transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1),
+    background-color 400ms ease;
+}
