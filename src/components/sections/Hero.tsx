@@ -86,7 +86,7 @@ export const Hero = () => {
             </Link>
           </div>
 
-          {/* Wordmark — redlabstudio / Powered by Voice of Dhaka */}
+          {/* Wordmark — redlabstudio / Binapani Narratives */}
           <div
             className="mt-12 flex flex-col items-center leading-none animate-fade-in-up"
             style={{ animationDelay: "400ms", opacity: 0 }}
@@ -96,8 +96,8 @@ export const Hero = () => {
               <span className="text-foreground">lab</span>
               <span className="text-primary">studio</span>
             </span>
-            <span className="text-[10px] font-bold tracking-[0.25em] text-muted-foreground mt-2 uppercase">
-              Powered by <span className="text-foreground">Voice of Dhaka</span>
+            <span className="text-[10px] font-bold tracking-[0.25em] text-foreground mt-2 uppercase">
+              Binapani Narratives
             </span>
           </div>
 
