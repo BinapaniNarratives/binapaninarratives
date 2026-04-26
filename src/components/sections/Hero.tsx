@@ -86,6 +86,21 @@ export const Hero = () => {
             </Link>
           </div>
 
+          {/* Wordmark — redlabstudio / Powered by Voice of Dhaka */}
+          <div
+            className="mt-12 flex flex-col items-center leading-none animate-fade-in-up"
+            style={{ animationDelay: "400ms", opacity: 0 }}
+          >
+            <span className="font-display font-black italic text-3xl md:text-4xl tracking-tight leading-none">
+              <span className="text-primary">red</span>
+              <span className="text-foreground">lab</span>
+              <span className="text-primary">studio</span>
+            </span>
+            <span className="text-[10px] font-bold tracking-[0.25em] text-muted-foreground mt-2 uppercase">
+              Powered by <span className="text-foreground">Voice of Dhaka</span>
+            </span>
+          </div>
+
           {/* Stats row with vertical dividers */}
           <div
             className="mt-20 flex flex-wrap items-center justify-center gap-y-6 animate-fade-in-up"
