@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, Video } from "lucide-react";
+import { Sparkles, Video } from "lucide-react";
 import WatchButtons from "@/components/WatchButtons";
 import ThemeToggle from "@/components/ThemeToggle";
 import "../styles-bn.css";
@@ -34,17 +34,7 @@ const Index = () => {
             ))}
           </div>
 
-          <div className="hidden items-center gap-4 md:flex">
-            <ThemeToggle />
-            <a href="#login" className="text-xs font-black uppercase tracking-[0.2em] text-muted-foreground">
-              Log In
-            </a>
-            <a href="#enroll" className="bn-button flex items-center gap-3 rounded-md px-5 py-4 text-sm font-black italic uppercase">
-              Enroll Now <ArrowRight size={18} />
-            </a>
-          </div>
-
-          <div className="flex items-center md:hidden">
+          <div className="flex items-center">
             <ThemeToggle />
           </div>
         </nav>
