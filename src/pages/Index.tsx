@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles, Video } from "lucide-react";
+import { Sparkles, Video } from "lucide-react";
 import WatchButtons from "@/components/WatchButtons";
 import ThemeToggle from "@/components/ThemeToggle";
 import "../styles-bn.css";
