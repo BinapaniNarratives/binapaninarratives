@@ -1,7 +1,7 @@
 import { Play } from "lucide-react";
 import { useState } from "react";
 
-const YOUTUBE_URL = "https://youtube.com/@binapaninarratives?si=w0YaL0yyAlD4oJem";
+const YOUTUBE_URL = "https://www.youtube.com/@BinapaniNarratives";
 const YOUTUBE_EMBED =
   "https://www.youtube.com/embed?listType=user_uploads&list=binapaninarratives&autoplay=1";
 
