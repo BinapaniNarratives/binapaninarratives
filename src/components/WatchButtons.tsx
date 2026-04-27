@@ -20,7 +20,7 @@ const WatchButtons = () => {
           href={YOUTUBE_URL}
           target="_blank"
           rel="noreferrer"
-          className="redlab-button inline-flex items-center gap-3 rounded-md px-7 py-4 text-sm font-black italic uppercase tracking-[0.18em]"
+          className="bn-button inline-flex items-center gap-3 rounded-md px-7 py-4 text-sm font-black italic uppercase tracking-[0.18em]"
         >
           <Play size={16} className="fill-current" />
           Watch Now
