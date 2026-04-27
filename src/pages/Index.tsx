@@ -49,9 +49,9 @@ const Index = () => {
             Subscribe Now
           </div>
 
-          <p className="bn-kicker hero-bio mx-auto mt-9 max-w-5xl text-sm leading-7 md:text-base md:leading-8">
-            A professional video editor and the CEO of the documentary YouTube channel Binapani Narratives. With over two years of hands-on experience in video editing and digital marketing, strong dedication, creativity, imagination, and professional skills have helped establish a solid presence in the digital content industry. A student of Rowshan Taieen, CEO of Bangladesh's leading documentary YouTube channel Voice of Dhaka, and also a student of Mexemy, gaining advanced editing expertise, a strong professional mindset, and in-depth knowledge of digital marketing and documentary storytelling under their guidance. With more than two years of experience, modern editing techniques, creative storytelling, and strategic digital promotion are applied to produce impactful documentary content.
-          </p>
+          <h1 className="hero-bio mx-auto mt-9 max-w-5xl">
+            "বীণাপাণি ন্যারেটিভস"-এ আপনাকে স্বাগতম
+          </h1>
 
           <div className="mt-12 flex justify-center">
             <WatchButtons />
