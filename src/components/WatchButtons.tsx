@@ -15,7 +15,16 @@ const WatchButtons = () => {
 
   return (
     <>
-      <div className="flex justify-center">
+      <div className="flex flex-col items-center gap-4 sm:flex-row sm:gap-5">
+        <a
+          href={YOUTUBE_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="bn-button inline-flex items-center gap-3 rounded-md px-7 py-4 text-sm font-black italic uppercase tracking-[0.18em]"
+        >
+          <Play size={16} className="fill-current" />
+          Watch Now
+        </a>
         <button
           type="button"
           onClick={openVideo}
