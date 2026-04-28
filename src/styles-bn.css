@@ -52,8 +52,8 @@
   font-weight: 700; font-style: normal; font-display: swap;
 }
 @font-face {
-  font-family: "Li Manowar Murshidabad";
-  src: url("/fonts/LiManowarMurshidabadUnicode.ttf") format("truetype");
+  font-family: "Li Shohid Salam";
+  src: url("/fonts/LiShohidSalamUnicode.ttf") format("truetype");
   font-weight: 400; font-style: normal; font-display: block;
 }
 @font-face {
@@ -149,7 +149,7 @@
 }
 
 .hero-bio {
-  font-family: "Li Manowar Murshidabad", "Saira Condensed", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Li Shohid Salam", "Saira Condensed", "Helvetica Neue", Arial, sans-serif;
   color: hsl(28 95% 58%);
   font-size: 2.25rem;
   letter-spacing: 0.02em;
