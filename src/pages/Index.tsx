@@ -20,20 +20,6 @@ const Index = () => {
             </div>
           </a>
 
-          <div className="hidden items-center gap-9 lg:flex">
-            {["Home", "Courses", "Success", "Course Details"].map((item, index) => (
-              <a
-                key={item}
-                href={`#${index === 0 ? "home" : index === 1 ? "courses" : index === 2 ? "success" : "details"}`}
-                className={`nav-link text-xs font-black uppercase tracking-[0.2em] ${
-                  index === 0 ? "text-primary" : "text-muted-foreground"
-                }`}
-              >
-                {item}
-              </a>
-            ))}
-          </div>
-
           <div className="flex items-center">
             <ThemeToggle />
           </div>
