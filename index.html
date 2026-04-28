@@ -19,6 +19,25 @@
     <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; media-src 'self' https:; upgrade-insecure-requests" />
     <link rel="preload" href="/fonts/LiShohidSalamUnicode.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
     <link rel="preload" href="/fonts/helony.otf" as="font" type="font/otf" crossorigin="anonymous" />
+    <!-- Inline @font-face so the browser registers fonts immediately on first paint
+         (matches the preload above and prevents any fallback-font flash / FOUT). -->
+    <style>
+      @font-face {
+        font-family: "Li Shohid Salam";
+        src: url("/fonts/LiShohidSalamUnicode.ttf") format("truetype");
+        font-weight: 400; font-style: normal; font-display: block;
+      }
+      @font-face {
+        font-family: "Helony";
+        src: url("/fonts/helony.otf") format("opentype");
+        font-weight: 400; font-style: normal; font-display: block;
+      }
+      /* Apply the Bengali font to the hero immediately, before the JS bundle CSS loads. */
+      .hero-bio {
+        font-family: "Li Shohid Salam", serif;
+        font-style: italic;
+      }
+    </style>
 
     
     
