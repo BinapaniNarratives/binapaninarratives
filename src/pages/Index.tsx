@@ -9,7 +9,7 @@ const Index = () => {
       <header className="glass-nav fixed left-0 right-0 top-0 z-30">
         <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6">
           <a href="#home" className="leading-none" aria-label="Binapani Narratives home">
-            <div className="bn-kicker text-base">
+            <div className="bn-brand text-2xl">
               <span>Binapani </span>
               <span>Narratives</span>
             </div>
