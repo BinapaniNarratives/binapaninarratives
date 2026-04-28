@@ -50,7 +50,8 @@ const Index = () => {
           </div>
 
           <h1 className="hero-bio mx-auto mt-9 max-w-5xl">
-            "বীণাপাণি ন্যারেটিভস"-এ আপনাকে স্বাগতম
+            <span className="text-white">"বীণাপাণি ন্যারেটিভস"</span>
+            <span className="text-primary">-এ আপনাকে স্বাগতম</span>
           </h1>
 
           <div className="mt-12 flex justify-center">
