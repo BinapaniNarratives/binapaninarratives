@@ -7,10 +7,16 @@
     <meta name="description" content="Portfolio Website">
     <meta name="author" content="Binapani Narratives" />
     <meta name="theme-color" content="#0a0a0a" />
+    <!-- Security headers (frontend-enforceable subset). HSTS, CSP frame-ancestors,
+         and cookie flags must also be set at the hosting/server layer for full protection. -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()" />
+    <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload" />
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), fullscreen=(self)" />
+    <!-- Strict CSP: no unsafe-eval. 'unsafe-inline' for styles is required by Tailwind/Vite runtime;
+         scripts are restricted to self. Adjust connect-src if you add API endpoints. -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https:; media-src 'self' https:; upgrade-insecure-requests" />
     <link rel="preload" href="/fonts/LiShohidSalamUnicode.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
     <link rel="preload" href="/fonts/helony.otf" as="font" type="font/otf" crossorigin="anonymous" />
 
