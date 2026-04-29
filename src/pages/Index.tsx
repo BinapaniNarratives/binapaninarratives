@@ -1,7 +1,7 @@
 import { Sparkles, Video } from "lucide-react";
 import WatchButtons from "@/components/WatchButtons";
 import ThemeToggle from "@/components/ThemeToggle";
-import AIChat from "@/components/AIChat";
+import AiChatBox from "@/components/AiChatBox";
 import "../styles-bn.css";
 
 const Index = () => {
