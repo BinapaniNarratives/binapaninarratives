@@ -97,9 +97,27 @@
   animation: ai-pulse 2s ease-out infinite;
   pointer-events: none;
 }
-.ai-spark {
-  animation: ai-spin 4s linear infinite, ai-twinkle 1.6s ease-in-out infinite;
-  filter: drop-shadow(0 0 4px rgba(255,255,255,0.7));
+.ai-spark-icon {
+  animation: ai-twinkle 1.6s ease-in-out infinite, ai-bob 2.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.9));
+}
+.ai-orbit {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  animation: ai-spin 3.5s linear infinite;
+  pointer-events: none;
+}
+.ai-orbit-dot {
+  position: absolute;
+  top: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: drop-shadow(0 0 4px hsl(var(--primary) / 0.9));
+}
+@keyframes ai-bob {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.1) rotate(8deg); }
 }
 @keyframes ai-float {
   0%, 100% { transform: translateY(0); }
