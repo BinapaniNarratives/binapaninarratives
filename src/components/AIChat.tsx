@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Bot, Send, X, Loader2 } from "lucide-react";
+import { Sparkles, Send, X, Loader2, Stars } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Button } from "@/components/ui/button";
@@ -108,7 +108,11 @@ const AIChat = () => {
         )}
       >
         <span className="ai-pulse-ring" />
-        <Bot className="h-6 w-6 ai-spark" />
+        <span className="ai-pulse-ring" style={{ animationDelay: "1s" }} />
+        <span className="ai-orbit">
+          <Stars className="ai-orbit-dot h-2.5 w-2.5 text-white" />
+        </span>
+        <Sparkles className="h-6 w-6 ai-spark-icon relative z-10" />
       </button>
 
       {/* Chat panel */}
@@ -124,8 +128,8 @@ const AIChat = () => {
         >
           <div className="flex items-center justify-between border-b border-border bg-gradient-to-r from-primary/10 via-purple-500/10 to-pink-500/10 px-4 py-3">
             <div className="flex items-center gap-2">
-              <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary via-purple-500 to-pink-500">
-                <Bot className="h-4 w-4 text-white ai-spark" />
+              <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary via-purple-500 to-pink-500 ai-glow">
+                <Sparkles className="h-4 w-4 text-white ai-spark-icon" />
               </div>
               <div>
                 <p className="text-sm font-bold leading-tight">Binapani AI</p>
