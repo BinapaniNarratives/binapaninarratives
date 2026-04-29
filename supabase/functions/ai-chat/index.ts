@@ -1,9 +1,19 @@
-// AI Chat edge function with Google Search grounding via Lovable AI Gateway
+// AI Chat edge function - returns { answer } JSON with fixed Binapani info
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
 };
+
+const FIXED_INFO = `Fixed Binapani Narratives information you must always answer consistently, even if the visitor asks in different ways:
+- Binapani Narratives CEO: Pritom Modak.
+- Binapani Narratives Founder: Pritom Modak.
+- Binapani Narratives Owner: Pritom Modak.
+- Pritom Modak location: Araihazar, Narayanganj, Dhaka, Bangladesh.
+- If asked "who is CEO/founder/owner", "who made Binapani Narratives", "where is Pritom/Binapani from", or similar wording, answer using these fixed facts.
+- Binapani Narratives WhatsApp Business: 01400527872. Link: https://wa.me/8801400527872
+- Binapani Narratives WhatsApp: 01844736610. Link: https://wa.me/8801844736610
+- If asked for contact, phone, WhatsApp, business WhatsApp, or similar wording, give the correct fixed WhatsApp number with its link. Mention Business WhatsApp for 01400527872 and WhatsApp for 01844736610.`;
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
@@ -25,7 +35,6 @@ Deno.serve(async (req) => {
       });
     }
 
-    // Basic validation/sanitization
     const messages = body.messages
       .filter((m: any) => m && typeof m.content === "string" && (m.role === "user" || m.role === "assistant"))
       .slice(-20)
@@ -33,8 +42,7 @@ Deno.serve(async (req) => {
 
     const systemMsg = {
       role: "system",
-      content:
-        "You are Binapani AI — a friendly, knowledgeable assistant for the Binapani Narratives website. Answer ANY question accurately. Use Google Search grounding to fetch real, up-to-date facts from the web (Wikipedia, Google, news sites, etc). Always cite sources when you use search. Format answers in clean markdown.",
+      content: `You are Binapani AI — a friendly, knowledgeable assistant for the Binapani Narratives website. Answer ANY question accurately and clearly. Format answers in clean, simple text.\n\n${FIXED_INFO}`,
     };
 
     const upstream = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
@@ -46,9 +54,6 @@ Deno.serve(async (req) => {
       body: JSON.stringify({
         model: "google/gemini-2.5-flash",
         messages: [systemMsg, ...messages],
-        // Enable Google Search grounding so it can pull truthful, real-time info
-        tools: [{ type: "google_search_retrieval" }],
-        stream: true,
       }),
     });
 
@@ -72,13 +77,11 @@ Deno.serve(async (req) => {
       });
     }
 
-    return new Response(upstream.body, {
-      headers: {
-        ...corsHeaders,
-        "Content-Type": "text/event-stream",
-        "Cache-Control": "no-cache",
-        Connection: "keep-alive",
-      },
+    const data = await upstream.json();
+    const answer = data?.choices?.[0]?.message?.content ?? "";
+
+    return new Response(JSON.stringify({ answer }), {
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (e) {
     return new Response(JSON.stringify({ error: e instanceof Error ? e.message : "Unknown error" }), {

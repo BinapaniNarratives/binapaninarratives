@@ -1,7 +1,7 @@
 import { Sparkles, Video } from "lucide-react";
 import WatchButtons from "@/components/WatchButtons";
 import ThemeToggle from "@/components/ThemeToggle";
-import AIChat from "@/components/AIChat";
+import AiChatBox from "@/components/AiChatBox";
 import "../styles-bn.css";
 
 const Index = () => {
@@ -62,7 +62,9 @@ const Index = () => {
         </div>
       </section>
 
-      <AIChat />
+      <section className="px-5 pb-20 pt-8 sm:px-6">
+        <AiChatBox />
+      </section>
     </main>
   );
 };
