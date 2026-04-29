@@ -17,11 +17,6 @@ const starterMessages: ChatMessage[] = [
 const chatEndpoint = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/ai-chat`;
 const publishableKey = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
 
-const whatsappContacts = [
-  { label: "WhatsApp Business", number: "01400527872", href: "https://wa.me/8801400527872" },
-  { label: "WhatsApp", number: "01844736610", href: "https://wa.me/8801844736610" },
-];
-
 const MarkdownText = ({ content }: { content: string }) => (
   <div>
     {content.split(/\n{2,}/).map((block, index) => (
