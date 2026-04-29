@@ -62,7 +62,9 @@ const Index = () => {
         </div>
       </section>
 
-      <AIChat />
+      <section className="px-5 pb-20 pt-8 sm:px-6">
+        <AiChatBox />
+      </section>
     </main>
   );
 };
