@@ -1,0 +1,75 @@
+.ai-chat-panel {
+  border: 1px solid hsl(var(--border) / 0.76);
+  background: linear-gradient(180deg, hsl(var(--card) / 0.92), hsl(var(--background) / 0.86));
+  box-shadow: 0 30px 90px -52px hsl(var(--primary) / 0.7), inset 0 1px 0 hsl(var(--foreground) / 0.08);
+  backdrop-filter: blur(18px);
+}
+
+.ai-orb {
+  color: hsl(var(--primary-foreground));
+  background: hsl(var(--primary));
+  box-shadow: 0 0 0 0 hsl(var(--primary) / 0.54), 0 0 42px hsl(var(--primary) / 0.48);
+  animation: ai-orb-pulse 2s ease-in-out infinite;
+}
+
+.whatsapp-chip {
+  border: 1px solid hsl(var(--primary) / 0.34);
+  background: hsl(var(--primary) / 0.1);
+  transition: transform 220ms ease, border-color 220ms ease, background 220ms ease;
+}
+
+.whatsapp-chip:hover {
+  transform: translateY(-2px);
+  border-color: hsl(var(--primary) / 0.76);
+  background: hsl(var(--primary) / 0.16);
+}
+
+.whatsapp-icon {
+  color: hsl(var(--primary-foreground));
+  background: hsl(var(--primary));
+  animation: whatsapp-bounce 1.8s ease-in-out infinite;
+}
+
+.chat-bubble {
+  max-width: min(86%, 34rem);
+  border: 1px solid hsl(var(--border) / 0.68);
+  padding: 0.85rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: hsl(var(--foreground));
+}
+
+.chat-bubble p + p {
+  margin-top: 0.65rem;
+}
+
+.chat-bubble-ai {
+  background: hsl(var(--secondary) / 0.62);
+}
+
+.chat-bubble-user {
+  background: hsl(var(--primary) / 0.16);
+  border-color: hsl(var(--primary) / 0.42);
+}
+
+@keyframes ai-orb-pulse {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.5), 0 0 42px hsl(var(--primary) / 0.48);
+  }
+
+  50% {
+    transform: translateY(-2px) scale(1.06);
+    box-shadow: 0 0 0 13px hsl(var(--primary) / 0), 0 0 62px hsl(var(--primary) / 0.7);
+  }
+}
+
+@keyframes whatsapp-bounce {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-3px) rotate(-6deg);
+  }
+}
