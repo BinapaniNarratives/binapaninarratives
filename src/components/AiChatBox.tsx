@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { Bot, Loader2, MessageCircle, Send, Sparkles, User } from "lucide-react";
+import { Bot, Loader2, Send, Sparkles, User } from "lucide-react";
 import "../styles-redlab.css";
 
 type ChatMessage = {
@@ -86,38 +86,15 @@ export const AiChatBox = () => {
 
   return (
     <section className="ai-chat-panel mx-auto w-full max-w-3xl rounded-3xl p-5 sm:p-7">
-      <header className="flex flex-wrap items-center justify-between gap-4 border-b border-border/60 pb-4">
-        <div className="flex items-center gap-3">
-          <span className="ai-orb flex h-12 w-12 items-center justify-center rounded-full">
-            <Sparkles className="h-5 w-5" />
-          </span>
-          <div>
-            <h2 className="text-lg font-black uppercase tracking-[0.18em]">Binapani AI</h2>
-            <p className="text-[0.7rem] font-bold uppercase tracking-[0.28em] text-muted-foreground">
-              Ask anything
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {whatsappContacts.map((contact) => (
-            <a
-              key={contact.number}
-              href={contact.href}
-              target="_blank"
-              rel="noreferrer"
-              className="whatsapp-chip flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold"
-            >
-              <span className="whatsapp-icon flex h-7 w-7 items-center justify-center rounded-full">
-                <MessageCircle className="h-3.5 w-3.5" />
-              </span>
-              <span className="flex flex-col leading-tight">
-                <span className="text-[0.6rem] uppercase tracking-[0.18em] text-muted-foreground">
-                  {contact.label}
-                </span>
-                <span className="text-foreground">{contact.number}</span>
-              </span>
-            </a>
-          ))}
+      <header className="flex items-center gap-3 border-b border-border/60 pb-4">
+        <span className="ai-orb flex h-12 w-12 shrink-0 items-center justify-center rounded-full">
+          <Sparkles className="h-5 w-5" />
+        </span>
+        <div>
+          <h2 className="text-lg font-black uppercase tracking-[0.18em] text-foreground">Binapani AI</h2>
+          <p className="text-[0.7rem] font-bold uppercase tracking-[0.28em] text-muted-foreground">
+            Ask anything
+          </p>
         </div>
       </header>
 
@@ -159,7 +136,7 @@ export const AiChatBox = () => {
           value={input}
           onChange={(event) => setInput(event.target.value.slice(0, 1200))}
           className="min-w-0 flex-1 rounded-full border border-border bg-background/80 px-4 py-3 text-sm font-semibold text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary"
-          placeholder="Ask about news, Wikipedia topics, editing, anything..."
+          placeholder="Ask me anything..."
           aria-label="Ask Binapani AI"
           disabled={isLoading}
         />
