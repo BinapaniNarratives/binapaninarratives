@@ -108,7 +108,7 @@ const AIChat = () => {
         )}
       >
         <span className="ai-pulse-ring" />
-        <Sparkles className="h-6 w-6 ai-spark" />
+        <Bot className="h-6 w-6 ai-spark" />
       </button>
 
       {/* Chat panel */}
@@ -125,7 +125,7 @@ const AIChat = () => {
           <div className="flex items-center justify-between border-b border-border bg-gradient-to-r from-primary/10 via-purple-500/10 to-pink-500/10 px-4 py-3">
             <div className="flex items-center gap-2">
               <div className="relative flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-primary via-purple-500 to-pink-500">
-                <Sparkles className="h-4 w-4 text-white ai-spark" />
+                <Bot className="h-4 w-4 text-white ai-spark" />
               </div>
               <div>
                 <p className="text-sm font-bold leading-tight">Binapani AI</p>
