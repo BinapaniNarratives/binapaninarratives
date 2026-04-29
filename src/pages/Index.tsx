@@ -1,6 +1,7 @@
 import { Sparkles, Video } from "lucide-react";
 import WatchButtons from "@/components/WatchButtons";
 import ThemeToggle from "@/components/ThemeToggle";
+import AIChat from "@/components/AIChat";
 import "../styles-bn.css";
 
 const Index = () => {
@@ -60,6 +61,8 @@ const Index = () => {
           <p className="bn-kicker">The Binapani Narratives Philosophy</p>
         </div>
       </section>
+
+      <AIChat />
     </main>
   );
 };

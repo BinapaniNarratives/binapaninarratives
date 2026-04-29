@@ -83,3 +83,36 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* === AI Chat floating button animations === */
+.ai-glow {
+  box-shadow: 0 8px 30px -4px hsl(var(--primary) / 0.5), 0 0 0 1px hsl(var(--primary) / 0.2);
+  animation: ai-float 3s ease-in-out infinite;
+}
+.ai-pulse-ring {
+  position: absolute;
+  inset: -4px;
+  border-radius: 9999px;
+  border: 2px solid hsl(var(--primary) / 0.5);
+  animation: ai-pulse 2s ease-out infinite;
+  pointer-events: none;
+}
+.ai-spark {
+  animation: ai-spin 4s linear infinite, ai-twinkle 1.6s ease-in-out infinite;
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.7));
+}
+@keyframes ai-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes ai-pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+@keyframes ai-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes ai-twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
