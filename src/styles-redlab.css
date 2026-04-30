@@ -1,3 +1,30 @@
+.redlab-shell {
+  background:
+    radial-gradient(circle at 50% 5%, hsl(var(--primary) / 0.24), transparent 28rem),
+    linear-gradient(hsl(var(--grid-line)) 1px, transparent 1px),
+    linear-gradient(90deg, hsl(var(--grid-line)) 1px, transparent 1px),
+    hsl(var(--background));
+  background-size: auto, 32px 32px, 32px 32px, auto;
+}
+
+.glass-nav {
+  border-bottom: 1px solid hsl(var(--border) / 0.45);
+  background: hsl(var(--background) / 0.88);
+  backdrop-filter: blur(22px);
+}
+
+.logo-mark {
+  font-family: "Arial Black", "Arial Narrow", Arial, sans-serif;
+  font-weight: 950;
+  font-style: italic;
+  letter-spacing: 0;
+  line-height: 0.8;
+}
+
+.redlab-display-type {
+  font-family: "Arial Black", "Arial Narrow", Arial, sans-serif;
+}
+
 .ai-chat-panel {
   border: 1px solid hsl(var(--border) / 0.76);
   background: linear-gradient(180deg, hsl(var(--card) / 0.92), hsl(var(--background) / 0.86));
@@ -52,24 +79,108 @@
   border-color: hsl(var(--primary) / 0.42);
 }
 
-@keyframes ai-orb-pulse {
-  0%, 100% {
-    transform: translateY(0) scale(1);
-    box-shadow: 0 0 0 0 hsl(var(--primary) / 0.5), 0 0 42px hsl(var(--primary) / 0.48);
-  }
+.hero-word {
+  text-shadow: 0 18px 80px hsl(0 0% 0% / 0.7);
+  animation: redlab-hero-rise 900ms cubic-bezier(.18,.9,.25,1) both;
+}
 
-  50% {
-    transform: translateY(-2px) scale(1.06);
-    box-shadow: 0 0 0 13px hsl(var(--primary) / 0), 0 0 62px hsl(var(--primary) / 0.7);
-  }
+.redlab-pill {
+  border: 1px solid hsl(var(--primary) / 0.34);
+  background: hsl(var(--primary) / 0.1);
+  color: hsl(var(--primary));
+  box-shadow: inset 0 0 28px hsl(var(--primary) / 0.04);
+}
+
+.redlab-button {
+  background: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  box-shadow: 0 20px 52px -22px hsl(var(--primary));
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+}
+
+.redlab-button:hover {
+  transform: translateY(-3px) skewX(-2deg);
+  filter: brightness(1.08);
+  box-shadow: 0 30px 72px -26px hsl(var(--primary));
+}
+
+.redlab-section-band {
+  border-block: 1px solid hsl(var(--border) / 0.55);
+  background: linear-gradient(180deg, hsl(var(--background)), hsl(var(--card)), hsl(var(--background)));
+}
+
+.redlab-card {
+  border: 1px solid hsl(var(--border));
+  background: linear-gradient(145deg, hsl(var(--card)), hsl(var(--secondary) / 0.76));
+  transition: transform 260ms ease, border-color 260ms ease, background 260ms ease;
+}
+
+.redlab-card:hover {
+  transform: translateY(-8px);
+  border-color: hsl(var(--primary) / 0.82);
+}
+
+.redlab-kicker {
+  color: hsl(var(--primary));
+  font-size: 0.75rem;
+  font-weight: 950;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.redlab-bengali {
+  font-weight: 700;
+  line-height: 1.95;
+  color: hsl(var(--muted-foreground));
+}
+
+.redlab-stat {
+  animation: redlab-stat-pop 700ms cubic-bezier(.18,.9,.25,1) both;
+}
+
+.redlab-marquee {
+  width: max-content;
+  animation: redlab-marquee 30s linear infinite;
+}
+
+.redlab-marquee:hover {
+  animation-play-state: paused;
+}
+
+.redlab-video {
+  background:
+    linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--card))),
+    radial-gradient(circle at 70% 30%, hsl(var(--primary) / 0.18), transparent 40%);
+}
+
+.redlab-quote-mark {
+  color: hsl(var(--primary));
+  font-size: clamp(7rem, 17vw, 16rem);
+  font-weight: 950;
+  line-height: 0.75;
+}
+
+@keyframes redlab-hero-rise {
+  from { opacity: 0; transform: translateY(38px) skewX(-5deg); }
+  to { opacity: 1; transform: translateY(0) skewX(0); }
+}
+
+@keyframes redlab-stat-pop {
+  from { opacity: 0; transform: translateY(18px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes redlab-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes ai-orb-pulse {
+  0%, 100% { transform: translateY(0) scale(1); box-shadow: 0 0 0 0 hsl(var(--primary) / 0.5), 0 0 42px hsl(var(--primary) / 0.48); }
+  50% { transform: translateY(-2px) scale(1.06); box-shadow: 0 0 0 13px hsl(var(--primary) / 0), 0 0 62px hsl(var(--primary) / 0.7); }
 }
 
 @keyframes whatsapp-bounce {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-
-  50% {
-    transform: translateY(-3px) rotate(-6deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-3px) rotate(-6deg); }
 }
