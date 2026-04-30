@@ -24,52 +24,98 @@ const isChatMessage = (value: unknown): value is ChatMessage => {
   );
 };
 
-const needsFreshContext = (message: string) =>
-  /news|latest|today|current|recent|google|wikipedia|wiki|বাংলা|খবর|আজ|সাম্প্রতিক/i.test(message);
+// Heuristics: avoid burning a search call on pure chit-chat / identity questions.
+const SKIP_SEARCH = /^(hi|hello|hey|salam|assalam|নমস্কার|হ্যালো|হাই|thanks|thank you|ধন্যবাদ|who are you|what can you do|তুমি কে|আপনি কে)\b/i;
+
+const shouldSearch = (message: string) => {
+  const trimmed = message.trim();
+  if (trimmed.length < 3) return false;
+  if (SKIP_SEARCH.test(trimmed)) return false;
+  return true;
+};
 
 const getSearchContext = async (query: string) => {
   const FIRECRAWL_API_KEY = Deno.env.get("FIRECRAWL_API_KEY");
-  if (!FIRECRAWL_API_KEY || !needsFreshContext(query)) return "";
-
-  const response = await fetch(FIRECRAWL_V2, {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${FIRECRAWL_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query,
-      limit: 5,
-      scrapeOptions: { formats: ["markdown"], onlyMainContent: true },
-    }),
-  });
-
-  if (!response.ok) {
-    console.error("Search context failed", response.status, await response.text());
+  if (!FIRECRAWL_API_KEY) {
+    console.warn("FIRECRAWL_API_KEY not set – skipping live search");
     return "";
   }
+  if (!shouldSearch(query)) return "";
 
-  const data = await response.json();
-  const results = Array.isArray(data?.data) ? data.data : Array.isArray(data?.web) ? data.web : [];
-  return results
-    .slice(0, 5)
-    .map((item: Record<string, unknown>, index: number) => {
-      const title = typeof item.title === "string" ? item.title : "Source";
-      const url =
-        typeof item.url === "string"
-          ? item.url
-          : typeof item.sourceURL === "string"
-            ? item.sourceURL
-            : "";
-      const text =
-        typeof item.markdown === "string"
-          ? item.markdown
-          : typeof item.description === "string"
-            ? item.description
-            : "";
-      return `[${index + 1}] ${title}\n${url}\n${text.slice(0, 1200)}`;
-    })
-    .join("\n\n");
+  try {
+    const response = await fetch(FIRECRAWL_V2, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${FIRECRAWL_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        query,
+        limit: 5,
+        scrapeOptions: { formats: ["markdown"], onlyMainContent: true },
+      }),
+    });
+
+    if (!response.ok) {
+      console.error("Search context failed", response.status, await response.text());
+      return "";
+    }
+
+    const data = await response.json();
+    const results = Array.isArray(data?.data)
+      ? data.data
+      : Array.isArray(data?.web)
+        ? data.web
+        : [];
+    return results
+      .slice(0, 5)
+      .map((item: Record<string, unknown>, index: number) => {
+        const title = typeof item.title === "string" ? item.title : "Source";
+        const url =
+          typeof item.url === "string"
+            ? item.url
+            : typeof item.sourceURL === "string"
+              ? item.sourceURL
+              : "";
+        const text =
+          typeof item.markdown === "string"
+            ? item.markdown
+            : typeof item.description === "string"
+              ? item.description
+              : "";
+        return `[${index + 1}] ${title}\nURL: ${url}\n${text.slice(0, 1500)}`;
+      })
+      .join("\n\n---\n\n");
+  } catch (err) {
+    console.error("Search context error", err);
+    return "";
+  }
+};
+
+const formatToday = () => {
+  const now = new Date();
+  const en = now.toLocaleDateString("en-US", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "Asia/Dhaka",
+  });
+  const bn = now.toLocaleDateString("bn-BD", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+    timeZone: "Asia/Dhaka",
+  });
+  const time = now.toLocaleTimeString("en-US", {
+    hour: "2-digit",
+    minute: "2-digit",
+    timeZone: "Asia/Dhaka",
+    hour12: true,
+  });
+  const iso = now.toISOString();
+  return { en, bn, time, iso };
 };
 
 Deno.serve(async (req) => {
@@ -94,6 +140,34 @@ Deno.serve(async (req) => {
     const lastUserMessage =
       [...messages].reverse().find((message) => message.role === "user")?.content ?? "";
     const searchContext = await getSearchContext(lastUserMessage);
+    const today = formatToday();
+
+    const systemPrompt = `You are Binapani AI, an advanced live assistant (similar to ChatGPT and Gemini) for website visitors. You answer ANY question clearly, truthfully, and in the user's language (English or Bangla as appropriate). Use concise markdown.
+
+REAL-TIME CONTEXT (server time, Asia/Dhaka):
+- Today's date (English): ${today.en}
+- Today's date (বাংলা): ${today.bn}
+- Current time: ${today.time} (Asia/Dhaka)
+- ISO timestamp: ${today.iso}
+
+If the visitor asks for today's date, current time, day of week, or "what day is it" — answer directly using the values above. Never say you don't know the date.
+
+LIVE WEB SEARCH:
+You are given fresh web search results below for the user's latest question. Use them to answer questions about news, current events, sports, weather, prices, people, places, definitions, Wikipedia-style facts, recent updates, or anything time-sensitive.
+- Synthesize a clear, helpful answer in the user's language.
+- ALWAYS include inline source links as clickable markdown like [source](https://...) right after the relevant fact.
+- At the end, add a short "Sources" list of the URLs you used.
+- If the search results don't cover the question, answer from your own knowledge but say so honestly.
+
+FIXED BINAPANI NARRATIVES INFO (always answer consistently, regardless of how the visitor phrases it):
+- CEO / Founder / Owner: Pritom Modak.
+- Pritom Modak location: Araihazar, Narayanganj, Dhaka, Bangladesh.
+- WhatsApp Business: 01400527872 → https://wa.me/8801400527872
+- WhatsApp: 01844736610 → https://wa.me/8801844736610
+- If asked for contact / phone / WhatsApp, give both numbers with their links.
+
+LIVE SEARCH RESULTS for the user's last question:
+${searchContext || "(No live search results were returned for this question. Answer from general knowledge and clearly say if information may be outdated.)"}`;
 
     const response = await fetch("https://ai.gateway.lovable.dev/v1/chat/completions", {
       method: "POST",
@@ -104,25 +178,7 @@ Deno.serve(async (req) => {
       body: JSON.stringify({
         model: "google/gemini-3-flash-preview",
         messages: [
-          {
-            role: "system",
-            content: `You are Binapani AI, a helpful assistant for website visitors. Answer clearly and truthfully in the user's language. Use concise markdown.
-
-Fixed Binapani Narratives information you must always answer consistently, even if the visitor asks in different ways:
-- Binapani Narratives CEO: Pritom Modak.
-- Binapani Narratives Founder: Pritom Modak.
-- Binapani Narratives Owner: Pritom Modak.
-- Pritom Modak location: Araihazar, Narayanganj, Dhaka, Bangladesh.
-- If asked "who is CEO/founder/owner", "who made Binapani Narratives", "where is Pritom/Binapani from", or similar wording, answer using these fixed facts.
-- Binapani Narratives WhatsApp Business: 01400527872. Link: https://wa.me/8801400527872
-- Binapani Narratives WhatsApp: 01844736610. Link: https://wa.me/8801844736610
-- If asked for contact, phone, WhatsApp, business WhatsApp, or similar wording, give the correct fixed WhatsApp number with its link. Mention Business WhatsApp for 01400527872 and WhatsApp for 01844736610.
-
-When search context is provided, use it for current/news/Wikipedia-style answers and cite source URLs. If no search context is provided for current events, say you may not have live information.
-
-Search context:
-${searchContext || "No live search context for this question."}`,
-          },
+          { role: "system", content: systemPrompt },
           ...messages,
         ],
       }),
