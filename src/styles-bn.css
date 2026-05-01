@@ -148,8 +148,23 @@
   50%      { transform: scale(1.25) rotate(180deg); }
 }
 
+@font-face {
+  font-family: "Li Alinur Snigdha";
+  src: url("/fonts/AlinurSnigdha.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Li Alinur Snigdha";
+  src: url("/fonts/AlinurSnigdha-Italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
 .hero-bio {
-  font-family: "Li Shohid Salam", "Saira Condensed", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Li Alinur Snigdha", "Li Shohid Salam", "Saira Condensed", "Helvetica Neue", Arial, sans-serif;
   color: hsl(28 95% 58%);
   font-size: 2.25rem;
   letter-spacing: 0.02em;
