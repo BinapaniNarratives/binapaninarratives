@@ -193,10 +193,6 @@ export const AiChatBox = () => {
     setIsLoading(true);
 
     const langName = languages.find((l) => l.code === lang)?.name || "English";
-    const payloadMessages = [
-      { role: "system" as const, content: `Reply in ${langName}.` },
-      ...nextMessages,
-    ];
 
     const response = await fetch(chatEndpoint, {
       method: "POST",
@@ -205,7 +201,7 @@ export const AiChatBox = () => {
         Authorization: `Bearer ${publishableKey}`,
         apikey: publishableKey,
       },
-      body: JSON.stringify({ messages: payloadMessages }),
+      body: JSON.stringify({ messages: nextMessages, language: langName }),
     });
     const data = await response.json().catch(() => null);
 
