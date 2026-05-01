@@ -285,6 +285,17 @@ export const AiChatBox = () => {
             )}
             <div className={`chat-bubble ${message.role === "user" ? "chat-bubble-user" : "chat-bubble-ai"}`}>
               <MarkdownText content={message.content} />
+              {message.role === "assistant" && "speechSynthesis" in window && (
+                <button
+                  type="button"
+                  onClick={() => speak(message.content)}
+                  className="mt-2 inline-flex items-center gap-1 rounded-full border border-border bg-background/80 px-2 py-1 text-[10px] font-black uppercase tracking-[0.12em] text-foreground transition-colors hover:border-primary"
+                  aria-label="Replay voice"
+                  title="Replay voice in selected language"
+                >
+                  <Volume2 className="size-3" aria-hidden="true" /> Play
+                </button>
+              )}
             </div>
             {message.role === "user" && (
               <div className="mt-1 grid size-8 shrink-0 place-items-center rounded-full bg-secondary text-secondary-foreground">
