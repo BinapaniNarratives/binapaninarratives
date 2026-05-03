@@ -199,11 +199,15 @@
     background-color 400ms ease;
 }
 
+@font-face {
+  font-family: "Klein Slabserif";
+  src: url("/fonts/KleinSlabserif-Bold.ttf") format("truetype");
+  font-weight: 700; font-style: normal; font-display: swap;
+}
 .hero-stay-young {
-  font-family: "Ultra", "Bodoni Moda", "Times New Roman", Times, serif;
+  font-family: "Klein Slabserif", "Times New Roman", Times, serif;
   color: #8a3a3a;
-  font-weight: 900;
-  font-style: normal;
+  font-weight: 700;
   font-size: 3.75rem;
   letter-spacing: 0.01em;
   line-height: 1;
