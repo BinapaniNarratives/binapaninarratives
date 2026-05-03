@@ -36,10 +36,7 @@ const Index = () => {
             Subscribe Now
           </div>
 
-          <h1 className="hero-bio mx-auto mt-9 max-w-5xl">
-            <span className="text-white">"বীণাপাণি ন্যারেটিভস"</span>
-            <span className="text-primary">-এ আপনাকে স্বাগতম</span>
-          </h1>
+          <h1 className="hero-stay-young mx-auto mt-9 max-w-5xl">STAY YOUNG</h1>
 
           <div className="mt-12 flex justify-center">
             <WatchButtons />
