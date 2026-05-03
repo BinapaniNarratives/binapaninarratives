@@ -198,3 +198,17 @@
     transform 500ms cubic-bezier(0.34, 1.56, 0.64, 1),
     background-color 400ms ease;
 }
+
+.hero-stay-young {
+  font-family: "Playfair Display", "Times New Roman", Times, serif;
+  color: hsl(357 50% 38%);
+  font-weight: 900;
+  font-style: normal;
+  font-size: 3.5rem;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .hero-stay-young { font-size: 6rem; letter-spacing: 0.04em; }
+}
