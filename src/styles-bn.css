@@ -200,15 +200,15 @@
 }
 
 .hero-stay-young {
-  font-family: "Playfair Display", "Times New Roman", Times, serif;
-  color: hsl(357 50% 38%);
+  font-family: "Ultra", "Bodoni Moda", "Times New Roman", Times, serif;
+  color: #8a3a3a;
   font-weight: 900;
   font-style: normal;
-  font-size: 3.5rem;
-  letter-spacing: 0.02em;
+  font-size: 3.75rem;
+  letter-spacing: 0.01em;
   line-height: 1;
   text-transform: uppercase;
 }
 @media (min-width: 768px) {
-  .hero-stay-young { font-size: 6rem; letter-spacing: 0.04em; }
+  .hero-stay-young { font-size: 7rem; }
 }
