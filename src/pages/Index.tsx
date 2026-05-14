@@ -2,6 +2,7 @@ import { Sparkles, Video } from "lucide-react";
 import WatchButtons from "@/components/WatchButtons";
 import ThemeToggle from "@/components/ThemeToggle";
 import AiChatBox from "@/components/AiChatBox";
+import binapaniLogo from "@/assets/binapani-logo.png";
 import "../styles-bn.css";
 
 const Index = () => {
@@ -9,7 +10,9 @@ const Index = () => {
     <main className="bn-shell min-h-screen overflow-hidden text-foreground">
       <header className="glass-nav fixed left-0 right-0 top-0 z-30">
         <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6">
-          <a href="#home" className="leading-none" aria-label="Binapani Narratives home">
+          <a href="#home" className="flex items-center gap-3 leading-none" aria-label="Binapani Narratives home">
+            <img src={binapaniLogo} alt="Binapani Narratives logo" className="h-10 w-10 object-contain" />
+            <div>
             <div className="bn-brand text-2xl">
               <span>Binapani </span>
               <span>Narratives</span>
