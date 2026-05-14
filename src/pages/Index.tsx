@@ -22,6 +22,7 @@ const Index = () => {
               <span className="text-primary">pritom</span>
               <span className="text-foreground"> modak</span>
             </div>
+            </div>
           </a>
 
           <div className="flex items-center">
