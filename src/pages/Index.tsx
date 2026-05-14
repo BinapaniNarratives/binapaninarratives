@@ -9,9 +9,9 @@ const Index = () => {
   return (
     <main className="bn-shell min-h-screen overflow-hidden text-foreground">
       <header className="glass-nav fixed left-0 right-0 top-0 z-30">
-        <nav className="mx-auto flex h-24 sm:h-28 max-w-7xl items-center justify-between px-5 sm:px-6">
+        <nav className="mx-auto flex h-32 sm:h-40 max-w-7xl items-center justify-between px-5 sm:px-6">
           <a href="#home" className="flex items-center gap-3 leading-none" aria-label="Binapani Narratives home">
-            <img src={binapaniLogo} alt="Binapani Narratives logo" className="h-16 w-16 sm:h-24 sm:w-24 object-contain" />
+            <img src={binapaniLogo} alt="Binapani Narratives logo" className="h-24 w-24 sm:h-36 sm:w-36 object-contain" />
             <div>
             <div className="bn-brand text-2xl">
               <span>Binapani </span>
