@@ -18,7 +18,7 @@ const Index = () => {
               <div className="flex items-center gap-3">
                 <SidebarTrigger />
                 <a href="#home" className="flex items-center leading-none" aria-label="Binapani Narratives home">
-                  <img src={binapaniLogo} alt="Binapani Narratives logo" className="h-1 w-auto object-contain" />
+                  <img src={binapaniLogo} alt="Binapani Narratives logo" className="h-20 sm:h-28 w-auto object-contain" />
                 </a>
               </div>
 
