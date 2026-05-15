@@ -17,12 +17,8 @@ const Index = () => {
             <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6">
               <div className="flex items-center gap-3">
                 <SidebarTrigger />
-                <a href="#home" className="flex items-center gap-3 leading-none" aria-label="Binapani Narratives home">
-                  <img src={binapaniLogo} alt="Binapani Narratives logo" className="h-12 w-12 object-contain" />
-                  <div className="bn-brand text-xl">
-                    <span>Binapani </span>
-                    <span>Narratives</span>
-                  </div>
+                <a href="#home" className="flex items-center leading-none" aria-label="Binapani Narratives home">
+                  <img src={binapaniLogo} alt="Binapani Narratives logo" className="h-14 w-auto object-contain" />
                 </a>
               </div>
 
