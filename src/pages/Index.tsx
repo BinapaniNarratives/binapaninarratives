@@ -38,7 +38,7 @@ const Index = () => {
               </div>
 
               <h1 className="mx-auto mt-9 flex max-w-7xl justify-center">
-                <img src={binapaniLogo} alt="Binapani" className="h-5 w-auto object-contain" />
+                <img src={binapaniLogo} alt="Binapani" className="w-full max-w-[1600px] object-contain" />
               </h1>
 
               <div className="mt-12 flex justify-center">
