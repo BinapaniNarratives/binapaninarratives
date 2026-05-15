@@ -37,8 +37,8 @@ const Index = () => {
                 Subscribe Now
               </div>
 
-              <h1 className="mx-auto mt-9 flex max-w-5xl justify-center">
-                <img src={binapaniLogo} alt="Binapani" className="w-full max-w-3xl object-contain" />
+              <h1 className="mx-auto mt-9 flex max-w-7xl justify-center">
+                <img src={binapaniLogo} alt="Binapani" className="w-full max-w-[1400px] object-contain scale-110" />
               </h1>
 
               <div className="mt-12 flex justify-center">
