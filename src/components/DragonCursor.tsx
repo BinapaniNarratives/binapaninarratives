@@ -50,15 +50,26 @@ const DragonCursor = () => {
     const particles: Particle[] = [];
     let rafId = 0;
 
-    const onMove = (e: MouseEvent) => {
+    const emitTrail = (x: number, y: number) => {
       for (let i = 0; i < 4; i++) {
-        particles.push(new Particle(e.clientX, e.clientY, Math.random() * 4 + 2, "rgba(255,255,255,0.8)"));
+        particles.push(new Particle(x, y, Math.random() * 4 + 2, "rgba(255,255,255,0.8)"));
       }
     };
-    const onClick = (e: MouseEvent) => {
+    const emitBurst = (x: number, y: number) => {
       for (let i = 0; i < 30; i++) {
-        particles.push(new Particle(e.clientX, e.clientY, Math.random() * 8 + 3, "rgba(255,255,255,1)"));
+        particles.push(new Particle(x, y, Math.random() * 8 + 3, "rgba(255,255,255,1)"));
       }
+    };
+
+    const onMove = (e: MouseEvent) => emitTrail(e.clientX, e.clientY);
+    const onClick = (e: MouseEvent) => emitBurst(e.clientX, e.clientY);
+    const onTouchMove = (e: TouchEvent) => {
+      const t = e.touches[0];
+      if (t) emitTrail(t.clientX, t.clientY);
+    };
+    const onTouchStart = (e: TouchEvent) => {
+      const t = e.touches[0];
+      if (t) emitBurst(t.clientX, t.clientY);
     };
 
     const animate = () => {
