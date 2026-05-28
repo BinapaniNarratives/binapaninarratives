@@ -89,11 +89,15 @@ const DragonCursor = () => {
 
     window.addEventListener("mousemove", onMove);
     window.addEventListener("click", onClick);
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
+    window.addEventListener("touchstart", onTouchStart, { passive: true });
     window.addEventListener("resize", resize);
     return () => {
       cancelAnimationFrame(rafId);
       window.removeEventListener("mousemove", onMove);
       window.removeEventListener("click", onClick);
+      window.removeEventListener("touchmove", onTouchMove);
+      window.removeEventListener("touchstart", onTouchStart);
       window.removeEventListener("resize", resize);
     };
   }, []);
