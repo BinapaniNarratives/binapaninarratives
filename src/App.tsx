@@ -6,12 +6,14 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Assistant from "./pages/Assistant.tsx";
 import NotFound from "./pages/NotFound.tsx";
+import DragonCursor from "./components/DragonCursor";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
+      <DragonCursor />
       <Toaster />
       <Sonner />
       <BrowserRouter>
